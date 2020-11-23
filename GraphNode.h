@@ -1,51 +1,49 @@
 #ifndef GRAPH_NODE_H
 #define GRAPH_NODE_H
+#include<string>
 
-#include <vector>
 class GraphNode{
 	
 	private:
+		
+		//id for node
+		char const * id;
+		
 	//Euclidian Coordinates of the node
-		int[2] coords;
+		int x;
+		int y;
 	
-	//neighbors of this node
-		vector<GraphNode> neighbors;
+	
 	
 	public:
-		GraphNode(int x, int y, LinkedList ns){
-			//set x coord
-			coords[0] = x;
-			//set y coord
-			coords[1] = y;
-			
-			//set neighbors
-			neighbors = ns;
+		GraphNode(){
 		}
 		
-		//get both coords as array
-		int* get_coords(){
-			return coords;
+		GraphNode(char const * node_id, int x_coord, int y_coord){
+			//set x coord
+			x = x_coord;
+			//set y coord
+			y = y_coord;
+			
+			id = node_id;
 		}
 		
 		//get x coord
 		int get_x(){
-			return coords[0];
+			return x;
 		}
 		
 		//get y coord
 		int get_y(){
-			return coords[1];
+			return y;
 		}
 		
-		//graphs neighbors LinkedList
-		vector<GraphNode> get_neighbors(){
-			return neighbors;
+		char const * get_id(){
+			return id;
 		}
 		
-		//returns number of neigbors this node has
-		int num_neighbors(){
-			return neighbors.size();
-		}
+		
+		
 
 };
 

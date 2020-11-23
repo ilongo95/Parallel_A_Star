@@ -12,8 +12,11 @@ class Edge{
 		int weight;
 		
 	public:
+		Edge(){
+		}
+		
 		//constructor
-		Edge(GraphNode n1, GraphNode n2, int weight){
+		Edge(GraphNode n1, GraphNode n2, int w){
 			node1 = n1;
 			node2 = n2;
 			weight = w;
