@@ -47,4 +47,8 @@ class GraphNode{
 
 };
 
+inline bool operator==(GraphNode n1, GraphNode n2){
+	return n1.get_id() == n2.get_id();
+}
+
 #endif

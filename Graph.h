@@ -85,6 +85,56 @@ class Graph{
 			return neighbors;
 		}
 		
+		//err if node does not exist
+		GraphNode get_node(char const* node_id){
+			std::vector<GraphNode> ns = this->get_nodes();
+			for(int i = 0; i < this->get_order(); i++){
+				if(ns[i].get_id() == node_id){
+					return ns[i];
+				}
+			}
+			//should not reach here. Only here if no node with id
+			return GraphNode();
+		}
+		
+		Edge get_edge(char const* n1_id, char const* n2_id){
+			Edge result;
+			for(auto &edge : edges){
+				if(edge.get_n1().get_id() == n1_id && edge.get_n2().get_id() == n2_id){
+					result = edge;
+				} else if(edge.get_n2().get_id() == n1_id && edge.get_n1().get_id() == n2_id){
+					result = edge;
+				}
+			}
+			return result;
+		}
+		
+		//returns vector of GraphNodes in order
+		/*std::vector<GraphNode> serial_a_star(GraphNode start, GraphNode end){
+			std::vector<GraphNode> open;
+			std::vector<GraphNode> closed;
+			GraphNode curr;
+			
+			open.push_back(start);
+			while(open.size() > 0){
+				
+			}
+		}*/
+		
+		//prints the path from start node to end node in vector
+		void print_path(std::vector<GraphNode> path){
+			float total = 0;
+			for(int i = 1; i < path.size(); i++){
+				Edge e = this->get_edge(path[i - 1].get_id(), path[i].get_id());
+				total += e.get_weight();
+				std::cout << e.get_n1().get_id() << " -> " << e.get_n2().get_id() 
+				<< " weight: " << e.get_weight() << "\n";
+				
+			}
+			std::cout << "Total Distance of Path: " << total << "\n";
+		}
+		
+		
 };
 
 #endif
