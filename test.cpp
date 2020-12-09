@@ -75,86 +75,20 @@ Graph read_graph(char const* file_name) {
 	return g;
 }
 
-int main() {
-	Graph g = read_graph("32x32-input.txt");
-	/*
-	//moke Gnodes
-	GraphNode a("0", 0, 0);
-	GraphNode b("1", 1, 0);
-	GraphNode c("c", 5, 6);
-	GraphNode d("d", 7, 8);
-	GraphNode e("e", 9, 10);
-	GraphNode f("f", 11, 12);
+int main(int argc, char** argv) {
+	// Exit if not enough input arguments were given
+	if (argc != 4) {
+		printf("Exiting due to incorrect amount of arguments. (%d given)", argc - 1);
+		exit(EXIT_FAILURE);
+	}
+	char* filename = argv[1];
+	int size_x = stoi(argv[2]);
+	int size_y = stoi(argv[3]);
+	int target = size_x * size_y - 1;
 
-	//set up nodes vector
-	std::vector<GraphNode> nodes;
-	nodes.push_back(a);
-	nodes.push_back(b);
-	nodes.push_back(c);
-	nodes.push_back(d);
-	nodes.push_back(e);
-	nodes.push_back(f);
+	Graph g = read_graph(filename);
 
-	//make edges
-	Edge ac(a, c, 2);
-	Edge eb(e, b, 6);
-	Edge cd(c, d, 4);
-	Edge db(d, b, 10);
-	Edge de(d, e, 1);
-
-	//set up edges
-	std::vector<Edge> edges;
-	edges.push_back(ac);
-	edges.push_back(eb);
-	edges.push_back(cd);
-	edges.push_back(db);
-	edges.push_back(de);
-
-	Graph g(nodes, edges);
-	cout << nodes[5].get_x() << endl;
-	/*
-	std::vector<PQNode> q;
-
-
-	q.push_back(PQNode(b, 2, 0));
-	q.push_back(PQNode(c, 3, 0));
-	q.push_back(PQNode(d, 4, 0));
-
-	q.push_back(PQNode(e, 5, 0));
-	q.push_back(PQNode(a, 1, 0));
-
-	Edge got = g.get_edge("e", "d");
-
-	cout << got.get_n1().get_id() << " " << got.get_n2().get_id() << " " << got.get_weight() << "\n";*/
-
-
-
-	/*	while(!q.empty()){
-			PQNode n = q.top();
-			GraphNode gn = n.get_node();
-			q.pop();
-
-			cout << gn.get_id() << " " << n.get_dist_to_goal() << "\n";
-		}
-
-		//cout << g.get_distance(e, a) << "\n" << endl;
-		*/
-
-		//	PQNode pqn = get_node(&q, PQNode(a, 1, 0));
-
-		//	cout << pqn.get_node().get_id() << " from get \n";
-
-		/*	for(int i = 0; i < q.size(); i++){
-				PQNode curr = q[i];
-				cout << curr.get_node().get_id() << " after get \n";
-			}*/
-
-
-
-
-	std::vector<GraphNode> path = serial_a_star(g, 0, 1023);
-
-
+	std::vector<GraphNode> path = serial_a_star(g, 0, target);
 
 	g.print_path(path);
 
