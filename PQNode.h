@@ -26,7 +26,7 @@ class PQNode{
 		
 		//defalt constructor
 		PQNode(){
-			g_node = GraphNode("", 0, 0);
+			g_node = GraphNode(-1, 0, 0);
 			dist_to_goal = 0;
 			path_dist = -1;
 			curr_path = std::vector<GraphNode>();

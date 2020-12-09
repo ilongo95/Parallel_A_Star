@@ -73,7 +73,7 @@ class Graph{
 		}
 		
 		//takes a node ID and returns all nodes connected to that node
-		std::vector<GraphNode> get_neighbors(char const* node_id){
+		std::vector<GraphNode> get_neighbors(int node_id){
 			std::vector<GraphNode> neighbors;
 			for(int i = 0; i < edges.size(); i++){
 				if(edges[i].get_n1().get_id() == node_id){
@@ -86,7 +86,7 @@ class Graph{
 		}
 		
 		//err if node does not exist
-		GraphNode get_node(char const* node_id){
+		GraphNode get_node(int node_id){
 			std::vector<GraphNode> ns = this->get_nodes();
 			for(int i = 0; i < this->get_order(); i++){
 				if(ns[i].get_id() == node_id){
@@ -97,7 +97,7 @@ class Graph{
 			return GraphNode();
 		}
 		
-		Edge get_edge(char const* n1_id, char const* n2_id){
+		Edge get_edge(int n1_id, int n2_id){
 			Edge result;
 			for(auto &edge : edges){
 				if(edge.get_n1().get_id() == n1_id && edge.get_n2().get_id() == n2_id){

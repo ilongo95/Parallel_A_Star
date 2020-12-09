@@ -57,7 +57,7 @@ PQNode grab_node(std::vector<PQNode>* ns, PQNode pqn){
 	return curr;
 }
 
-std::vector<GraphNode>serial_a_star(Graph g, const char * start, const char * end){
+std::vector<GraphNode>serial_a_star(Graph g, int start, int end){
 	
 
 

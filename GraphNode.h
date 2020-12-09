@@ -1,13 +1,14 @@
 #ifndef GRAPH_NODE_H
 #define GRAPH_NODE_H
-#include<string>
+#include <string>
+#include <iostream>
 
 class GraphNode{
 	
 	private:
 		
 		//id for node
-		char const * id;
+		int id;
 		
 	//Euclidian Coordinates of the node
 		int x;
@@ -19,12 +20,13 @@ class GraphNode{
 		GraphNode(){
 		}
 		
-		GraphNode(char const * node_id, int x_coord, int y_coord){
+		GraphNode(int node_id, int x_coord, int y_coord){
 			//set x coord
 			x = x_coord;
 			//set y coord
 			y = y_coord;
 			
+			// Deep copy the id
 			id = node_id;
 		}
 		
@@ -38,7 +40,7 @@ class GraphNode{
 			return y;
 		}
 		
-		char const * get_id(){
+		int get_id(){
 			return id;
 		}
 		
