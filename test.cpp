@@ -94,8 +94,9 @@ int main(int argc, char** argv) {
 	std::vector<GraphNode> path = serial_a_star(g, 0, target);
 	auto end = chrono::steady_clock::now();
 
+	cout  << "Runtime: " << double(chrono::duration_cast<chrono::microseconds>(end - start).count()) / 1000000 << " sec" << endl;
+
 	g.print_path(path);
-	cout << endl << "Runtime: " << double(chrono::duration_cast<chrono::microseconds>(end - start).count()) / 1000000 << " sec" << endl;
 
 	return 0;
 }
