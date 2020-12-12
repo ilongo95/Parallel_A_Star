@@ -75,8 +75,7 @@ std::vector<GraphNode> decent_a_star(Graph g, int start_id, int end_id, int mpi_
 	int node[2]; //0: lenght of message, 1: message source
 	int send_node_size[2];
 	int inc_counter = 0;
-	double t1;
-	double t2;
+	
 	//used to get node from other process
 	float* node_data;
 	
@@ -198,7 +197,7 @@ std::vector<GraphNode> decent_a_star(Graph g, int start_id, int end_id, int mpi_
 				MPI_Send(send_term, 3, MPI_INT, next_proc, 0, MPI_COMM_WORLD);
 				//wait for response
 				MPI_Wait(&term_req, MPI_STATUS_IGNORE);
-				t1 = MPI_Wtime();
+				
 				//now has response.
 				//term[0] has tot send count, term[1] has tot recv count
 				if(term[0] == -1 || term[0] != term[1]){
@@ -366,8 +365,8 @@ std::vector<GraphNode> decent_a_star(Graph g, int start_id, int end_id, int mpi_
 		  inc_counter++;
 		  //t2 = MPI_Wtime();
 		  //std::cout << "t1: " << t1 << " t2: " << t2 << "\n";
-			if(inc_counter % 100 == 0){
-			  t1 = MPI_Wtime();
+			if(inc_counter % 50 == 0){
+			  
 				//do term again
 				int send_term[3];
 				send_term[0] = send_count;
