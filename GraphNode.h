@@ -44,7 +44,9 @@ class GraphNode{
 			return id;
 		}
 		
-		
+		int hash(int ps){
+			return (id % ps);
+		}
 		
 
 };
