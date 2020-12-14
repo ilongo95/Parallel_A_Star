@@ -1,9 +1,9 @@
-test: test.cpp serial_a_star.cpp
-	g++ -o test test.cpp serial_a_star.cpp
-
-serial: serial_a_star.cpp
-	g++ -o serial serial_a_star.cpp
+serial: run_serial.cpp serial_a_star.cpp
+	g++ -o serial run_serial.cpp serial_a_star.cpp
+	
+decent: run_decent.cpp decent_a_star.cpp
+	mpicxx -o decent run_decent.cpp decent_a_star.cpp
 
 clean:
-	rm -f test.exe serial.exe
+	rm -f decent serial
     
