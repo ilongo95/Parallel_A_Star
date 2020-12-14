@@ -47,6 +47,16 @@ class Graph{
 		int get_size(){
 			return edges.size();
 		}
+	
+		GraphNode get_node_at_index(int i){
+			return nodes[i];
+		}
+	
+		int get_node_index(GraphNode n){
+			return n.get_id();
+		}
+	
+	
 		
 		//calculates the distance between two nodes based on their coordinates
 		double get_distance(GraphNode n1, GraphNode n2){
@@ -109,17 +119,7 @@ class Graph{
 			return result;
 		}
 		
-		//returns vector of GraphNodes in order
-		/*std::vector<GraphNode> serial_a_star(GraphNode start, GraphNode end){
-			std::vector<GraphNode> open;
-			std::vector<GraphNode> closed;
-			GraphNode curr;
-			
-			open.push_back(start);
-			while(open.size() > 0){
-				
-			}
-		}*/
+		
 		
 		//prints the path from start node to end node in vector
 		void print_path(std::vector<GraphNode> path){
