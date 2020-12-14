@@ -84,6 +84,10 @@ class PQNode{
 		void add_to_path(GraphNode n){
 			curr_path.push_back(n);
 		}
+	
+		void set_distance_to_goal(float f){
+			dist_to_goal = f;
+		}
 };
 
 	//overload the < operator so it may be used in priority queue
