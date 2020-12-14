@@ -1,5 +1,5 @@
 # Parallel_A_Star
-Parallel A* for CMSC498X Group Project
+Parallel A* for CMSC498X Group 8's final project
 
 Configuration:
 In order to properly compile and run the programs on Deepthought2 you must first load the needed OpenMPI and GCC modules with the below command.
@@ -14,5 +14,14 @@ To run the serial program after it is complied use the name of the executable "s
 Note that the input files are in the directory named input so you will need to place that infront of the name of the text imput file.
 
 Running the centralized program:
-Similar to the serial program we will need to provide a input file and its size however, this program utilizes 
+Similar to the serial program we will need to provide a input file and its size however, this program utilizes OpenMP and the number of threads to run the program with needs to be specified. See below for an example.
+  export OMP_NUM_THREADS=16
+  centralized input/256x256-input.txt 256 256
+  
+Running the decentralized program:
+Once again similar to the above programs we will need to provide the input file and the size of the graph in that input file. However this program uses MPI so you need to use the "mpirun" command and you will need to specify how many processes you wish to use. Below is an example.
+  mpirun -n 16 decent input/256x256-input.txt 256 256
+  
+Output:
+When running on deepthought2 the 
   
