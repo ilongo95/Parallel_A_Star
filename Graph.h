@@ -127,7 +127,7 @@ class Graph{
 			for(int i = 1; i < path.size(); i++){
 				Edge e = this->get_edge(path[i - 1].get_id(), path[i].get_id());
 				total += e.get_weight();
-				std::cout << e.get_n1().get_id() << " -> " << e.get_n2().get_id() 
+				std::cout << path[i-1].get_id() << " -> " << path[i].get_id() 
 				<< " weight: " << e.get_weight() << "\n";
 				
 			}
