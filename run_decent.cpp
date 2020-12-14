@@ -69,7 +69,7 @@ int main(int argc, char** argv) {
 		printf("Exiting due to incorrect amount of arguments. (%d given)", argc - 1);
 		exit(EXIT_FAILURE);
 	}
-	MPI_Init(&argv, &argc);
+	MPI_Init(&argc, &argv);
 	int rank;
 	int size;
 	MPI_Comm_size(MPI_COMM_WORLD, &size);
