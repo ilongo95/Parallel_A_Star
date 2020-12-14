@@ -3,8 +3,16 @@ Parallel A* for CMSC498X Group Project
 
 Configuration:
 In order to properly compile and run the programs on Deepthought2 you must first load the needed OpenMPI and GCC modules with the below command.
-  module load openmpi/gcc
+  "module load openmpi/gcc"
   
-  Compilation:
-  
+Compilation:
+There are three unique targets for compilation in the Makefile. You may use "make serial", "make decent", or "make centralized" to compile the serial, decentralized or centralized implementations of A* respectively. You may also use "make all" to compile all three implementations at once. You may use "make clean" to delete all executable files at once.
+
+Running the serial program:
+To run the serial program after it is complied use the name of the executable "serial" followed by the name of the input file you wish to use followed by the sizes of the X and Y of the graph. An example is below.
+  serial input/256x256-input.txt 256 256
+Note that the input files are in the directory named input so you will need to place that infront of the name of the text imput file.
+
+Running the centralized program:
+Similar to the serial program we will need to provide a input file and its size however, this program utilizes 
   
