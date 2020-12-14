@@ -1,3 +1,5 @@
+all: serial decent centralized
+
 serial: run_serial.cpp serial_a_star.cpp
 	g++ -o serial run_serial.cpp serial_a_star.cpp
 	
