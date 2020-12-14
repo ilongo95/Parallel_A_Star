@@ -28,5 +28,5 @@ Once again similar to the above programs we will need to provide the input file 
   mpirun -n 16 decent input/256x256-input.txt 256 256
   
 Output:
-When running on deepthought2 the 
+When running on deepthought2 each of the programs will output into the slurm file for its job number. The output will show the shortest path from the start node to the goal node by displaying each edge traversed and the weight of each edge. The total of all of these weights will also be displayed. Additionally, the runtime in seconds of the A* algorithm will also be displayed.
   
