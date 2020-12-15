@@ -20,6 +20,7 @@ Running the centralized program:
 Similar to the serial program we will need to provide a input file and its size however, this program utilizes OpenMP and the number of threads to run the program with needs to be specified. See below for an example.
 
   export OMP_NUM_THREADS=16
+  
   centralized input/256x256-input.txt 256 256
   
 Running the decentralized program:
