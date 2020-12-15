@@ -12,7 +12,7 @@ There are three unique targets for compilation in the Makefile. You may use "mak
 Running the serial program:
 To run the serial program after it is complied use the name of the executable "serial" followed by the name of the input file you wish to use followed by the sizes of the X and Y of the graph. An example is below.
 
-  serial input/256x256-input.txt 256 256
+  ./serial input/256x256-input.txt 256 256
   
 Note that the input files are in the directory named input so you will need to place that infront of the name of the text imput file.
 
@@ -21,12 +21,12 @@ Similar to the serial program we will need to provide a input file and its size 
 
   export OMP_NUM_THREADS=16
   
-  centralized input/256x256-input.txt 256 256
+  ./centralized input/256x256-input.txt 256 256
   
 Running the decentralized program:
 Once again similar to the above programs we will need to provide the input file and the size of the graph in that input file. However this program uses MPI so you need to use the "mpirun" command and you will need to specify how many processes you wish to use. Below is an example.
 
-  mpirun -n 16 decent input/256x256-input.txt 256 256
+  mpirun -n 16 ./decent input/256x256-input.txt 256 256
   
 Output:
 When running on deepthought2 each of the programs will output into the slurm file for its job number. The output will show the shortest path from the start node to the goal node by displaying each edge traversed and the weight of each edge. The total of all of these weights will also be displayed. Additionally, the runtime in seconds of the A* algorithm will also be displayed.
